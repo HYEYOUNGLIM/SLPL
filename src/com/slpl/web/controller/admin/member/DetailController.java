@@ -43,11 +43,11 @@ public class DetailController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("id : "+request.getParameter("id"));
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		MemberView m = service.getView(id);
-		
-		System.out.println("gender : "+m.getGender());
 		
 		
 		// 카테고리 목록 가져오기
@@ -126,12 +126,10 @@ public class DetailController extends HttpServlet {
 		if(filePart != null && filePart.getSize() > 0) {   // 파일 첨부 input이 여러개면 다 name을 file로 하면 한번에 갖고와짐
 			System.out.println("name : "+filePart.getName()+ " / fileName : "+filePart.getSubmittedFileName());
 
-			int newId = service.getLastId() + 1;
-
 			profileImgName = filePart.getSubmittedFileName();
             
 			// 경로 받아오기
-			String pathTemp = request.getServletContext().getRealPath("/static/member/2020/"+newId+"/");   // 실제 서블릿 있는 경로를 알아내고, 인자로 넣은 경로의 실제 물리경로를 알아내주는 녀석.
+			String pathTemp = request.getServletContext().getRealPath("/static/member/2020/"+id+"/");   // 실제 서블릿 있는 경로를 알아내고, 인자로 넣은 경로의 실제 물리경로를 알아내주는 녀석.
 			
 			// 디렉토리 만들기
 			File path = new File(pathTemp);
