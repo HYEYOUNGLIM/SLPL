@@ -25,49 +25,87 @@
 <script type="text/javascript">
 	window.onload = function() {
 		console.log("시작");
-		var recommendBtn = document.getElementsByClassName("recommend-button")[0];
-		var heart = document.getElementsByClassName("heart")[0];
+		
+		
 		var regBtn = document.getElementsByClassName("reg-button")[0];
 		var commentBox = document.getElementsByClassName("input-reply")[0];
 		//recommendBtn.comment-form //visibility:hidden; heart-click-check
 		var commentForm = document.getElementsByClassName("comment-form")[0];
-		var heartClick = document.getElementsByClassName("heart-click-check")[0];
-
-		regBtn.onclick = function(e) {
-			e.preventDefault();
-			if (commentBox.value == "") {
+		
+			if(commentBox.value != null){
+				regBtn.onclick = function(e) {
+					e.preventDefault();
+					if (commentBox.value == "") {
+						console.log("등록실패");
+					} else {
+						commentForm.submit();
+					}
+			
+				}
 				alert("댓글을 입력해주세요");
 				return false;
-			} else {
-				commentForm.submit();
 			}
-
-		}
+		
+	}
 		//visibility: hidden;
+	
+	window.onload = function() {
+		var recommendBtn = document.getElementsByClassName("recommend-button")[0];
+		document.getElementsByClassName("heart")[0].style.visibility = "hidden";
+		var heartClick = document.getElementsByClassName("heart-click-check")[0];
 		recommendBtn.onclick = function(e) {
-			console.log("하트 보여줘");
 			e.preventDefault();
 
-			if (heartClick.value == "click2") {
-				heart.style.visibility = "hidden";
-				heartClick.value = "click";
-				console.log(heartClick.value);
-			} else if (heartClick.value == "click") {
-				heart.style.visibility = "visible";
-				heartClick.value = "click2";
-				console.log(heartClick.value);
+			var cnt = null;
+			/* if (heartClick.value == "click2") {
+				var result = confirm("하트를 취소하시겠습니까?");
+				if(result){
+					heartClick.value = "click";
+					heart.style.visibility = "hidden";
+					cnt = -1;
+					var request = new XMLHttpRequest();
+					request.onload = function() {
+						if (request.readyState == 4) {
+							console.log("줄어들어");
+						}
+					}
+					request.open("POST", "/community/all/detail?cnt=" + cnt+ "&id=" +${n.id}, true);
+					request.send();
+					window.location.reload();
+				}else{
+					heart.style.visibility = "visible";
+				}
+				
+			} else  */
+			if (heartClick.value == "click") {
+				//heart = "visible";
+				//heartClick.value = "click2";
+				cnt  = 1;
+				var request = new XMLHttpRequest();
+				request.onload = function() {
+					if (request.readyState == 4) {
+					}
+				}
+				request.open("POST", "/community/all/detail?cnt=" + cnt+ "&id=" +${n.id}, true);
+				request.send();
+				
+				
+				//heart.style.visibility = "visible";
 			}
-
+			document.getElementsByClassName("heart")[0].style.visibility = "visible"
+			//heart.style.visibility = "visible";
+				window.location.reload();
 		}
-
+		
 		var reportAdd = document.getElementById("report-add");
 
 		reportAdd.onclick = function() {
 			var win = open("report?id=${n.id}", "_blank",
 					"width=350px, height=370px");
 
-		};
-
+		}
+		
+	
 	}
 </script>
 
@@ -85,12 +123,13 @@
 					<div class="content-box">
 						<div class="content-box-top">
 							<div class="detail-list">
-								<a class="a-input" href="list?c=${param.c}">목록</a> <!-- <a
+								<a class="a-input" href="list?c=${param.c}">목록</a>
+								<!-- <a
 									class="a-input" href="">이전글</a> <a class="a-input" href="">다음글</a> -->
 							</div>
 							<div class="detail-update">
-								<a class="a-input-black" href="update?id=${n.id}">수정</a> <a
-									class="a-input-black" href="delete?id=${n.id}">삭제</a> <a
+								<a class="a-input-black" href="update?c=${param.c}&id=${n.id}">수정</a> <a
+									class="a-input-black" href="delete?c=${param.c}&id=${n.id}">삭제</a> <a
 									id="report-add" class="a-input-black">신고</a>
 							</div>
 						</div>
