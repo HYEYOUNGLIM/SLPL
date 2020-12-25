@@ -14,66 +14,10 @@
     <link href="../../../assets/css/admin/test-list.css" type="text/css" rel="stylesheet">
 </head>
 <body>    
-    <header class="header">
-        <h1 class="d-none"> 심리플리</h1>     
-
-        <section class="logo">
-            <h1 class="d-none">HOME</h1>            
-            <a href="index.html">                    
-                <img src="../../../assets/images/admin/admin-title.png" alt="홈" />
-            </a>    
-        </section>
-        
-        <div class="title">
-            ADMIN DASHBOARD
-        </div>
-
-        <div class="login-menu">
-            <input type="button" id="logout" value="LOGOUT" class="white-button-s"/>
-        </div>        
-    </header>
+    <jsp:include page="../../common/header.jsp"></jsp:include>
 
     <div id="body" class="body" >  
-        <nav>
-            <h1 class="d-none">메인 메뉴</h1>
-            <ul class="main-menu">
-                <li>
-                    <div class="first-menu-item">
-                        <img class="menu-img" src="../../../assets/images/admin/admin_menu_dashboard.png" alt="대시보드"/>   
-                        <a href="#">DASH BOARD</a>    
-                    </div>                    
-                </li>
-                <li>
-                    <div class="first-menu-item">
-                        <img class="menu-img" src="../../../assets/images/admin/admin_menu_member.png" alt="회원 관리"/> 
-                        <a href="#">MEMBER</a>    
-                    </div>                    
-                    
-                    <ul>
-                        <li><a href="list.html">LIST</a></li>
-                        <li><a href="add.html">ADD</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="first-menu-item">
-                        <img class="menu-img" src="../../../assets/images/admin/admin_menu_community.png" alt="게시판 관리"/> 
-                        <a href="#">COMMUNITY</a>    
-                    </div>                    
-                </li>
-                <li>
-                    <div class="first-menu-item">
-                        <img class="menu-img" src="../../../assets/images/admin/admin_menu_test.png" alt="테스트 관리"/> 
-                        <a href="#">TEST</a>
-                    </div>                    
-
-                    <ul>
-                        <li><a href="">맡으신거</a></li>
-                        <li><a href="">여기다</a></li>
-                        <li><a href="">적어주세요</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav> 
+        <jsp:include page="../../common/menu.jsp"></jsp:include>
        
 
         <main class="main">
@@ -184,18 +128,8 @@
             </section>
             
             
-            <footer class="footer">
-                한국심리콘텐츠개발연구소<br> 
-                대표이사 : 정혜진 사업자등록번호 : 197-06-18554 사업자 정보확인 통신판매업 신고 : 2020-서울특별시-1102<br>
-        
-                사업장주소 : 서울 종로구 인사동길 12 대일빌딩 7층, 15층 대표번호 : 010-9965-2278 제품/서비스/멤버십: 1588-3366 구매문의 : 1588-6084<br>
-            
-                본 사이트의 컨텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다.<br>
-                
-                게시된 이메일 주소가 자동 수집되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 처벌됨을 유념하시기 바랍니다.<br>
-        
-                Copyright © 2020-2020 KCPDL. All Rights Reserved.<br>
-            </footer>    
+            <!------------------------------------------- 풋터  -------------------------------------------------->
+			<jsp:include page="../../common/footer.jsp"></jsp:include>
 
         </main>
 

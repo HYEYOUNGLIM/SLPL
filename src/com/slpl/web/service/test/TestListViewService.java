@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.slpl.web.dao.jdbc.JdbcTestListViewDao;
 import com.slpl.web.dao.test.TestListViewDao;
+import com.slpl.web.entity.test.Test;
 import com.slpl.web.entity.test.TestListView;
 
 public class TestListViewService {
@@ -33,5 +34,10 @@ public class TestListViewService {
 		int endIndex = page * pageLength;
 
 		return testListViewDao.myList(startIndex, endIndex, field, query, align, writerId);
+	}
+
+	public TestListView get(int id) {
+
+		return testListViewDao.get(id);
 	}
 }

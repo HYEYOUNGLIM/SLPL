@@ -46,7 +46,7 @@ window.addEventListener("load", function() {
 	                <a href="#">COMMUNITY</a>    
 	            </div>                    
 	             <ul class="second-menu">
-	             	<li><a href="/admin/community/category">카테고리 관리</a></li>
+	             	<li><a href="/admin/community/category/list">카테고리 관리</a></li>
 	             	<li><a href="/admin/community/report/list">신고 관리</a></li>
 	             	<li><a href="/admin/community/notice/list">공지사항</a></li>
 	             </ul>
