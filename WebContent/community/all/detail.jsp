@@ -32,7 +32,6 @@
 		//recommendBtn.comment-form //visibility:hidden; heart-click-check
 		var commentForm = document.getElementsByClassName("comment-form")[0];
 		var heartClick = document.getElementsByClassName("heart-click-check")[0];
-
 		regBtn.onclick = function(e) {
 			e.preventDefault();
 			if (commentBox.value == "") {
@@ -41,13 +40,11 @@
 			} else {
 				commentForm.submit();
 			}
-
 		}
 		//visibility: hidden;
 		recommendBtn.onclick = function(e) {
 			console.log("하트 보여줘");
 			e.preventDefault();
-
 			if (heartClick.value == "click2") {
 				heart.style.visibility = "hidden";
 				heartClick.value = "click";
@@ -57,17 +54,12 @@
 				heartClick.value = "click2";
 				console.log(heartClick.value);
 			}
-
 		}
-
 		var reportAdd = document.getElementById("report-add");
-
 		reportAdd.onclick = function() {
 			var win = open("report?id=${n.id}", "_blank",
 					"width=350px, height=370px");
-
 		};
-
 	}
 </script>
 
