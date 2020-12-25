@@ -77,6 +77,13 @@ public class CommunityService {
 	}
 
 
+
+	public int updateRecommend(int community_id, int recommend_cnt) {
+		return communityDao.updateRecommend(community_id,recommend_cnt);
+		
+	}
+
+
 	
 
 //	public int getLastId() {

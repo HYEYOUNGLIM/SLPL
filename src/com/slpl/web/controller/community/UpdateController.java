@@ -1,6 +1,7 @@
 package com.slpl.web.controller.community;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +42,10 @@ public class UpdateController extends HttpServlet{
 		CommunityService service = new CommunityService();
 		service.update(community);
 		
-		response.sendRedirect("detail?id="+id);
+		String category = request.getParameter("c");
+		String categoryName = URLEncoder.encode(category);
+
+		response.sendRedirect("/community/all/list?c="+categoryName);
 
 	}
 

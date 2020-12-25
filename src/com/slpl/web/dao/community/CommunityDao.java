@@ -24,6 +24,7 @@ public interface CommunityDao {
 	List<CommunityView> getViewList(String field, String query, int page, String category);
 	int getCommunityCount(String field, String query, String category);
 	int updateCnt(int community_id, int addCnt);
+	int updateRecommend(int community_id, int recommendCnt);
 
 
 }

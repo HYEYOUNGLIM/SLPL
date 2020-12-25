@@ -465,6 +465,35 @@ public class JdbcCommunityDao implements CommunityDao {
 		return result;
 	}
 
+	@Override
+	public int updateRecommend(int community_id, int recommendCnt) {
+		int result = 0;
+		String url = DBContext.URL;
+		String sql = "update community set recommend_cnt = recommend_cnt+" + recommendCnt + "  WHERE id = ?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, DBContext.UID, DBContext.PWD);
+			PreparedStatement st = con.prepareStatement(sql);
+
+			st.setInt(1, community_id);
+
+			result = st.executeUpdate();
+
+			st.close();
+			con.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(result);
+		return result;
+	}
+
 //	@Override
 //	public int getCommunityCount(String field, String query, String category) {
 //		// TODO Auto-generated method stub
