@@ -36,7 +36,7 @@
                      	<c:forEach var="n" items="${bestList }" begin="7" end="9">
                      	<a href="../play/action?id=${n.id }">
 	                     	<li>
-	                           <img src="../../assets/images/test/list/testMain.png" alt="">
+	                           <img src="/test/listImg?id=${n.id}" alt="표지">
 	                           <div>${n.name }</div>
 	                        </li>
                         </a>
@@ -44,7 +44,7 @@
                         <c:forEach var="n" items="${bestList }">
                      	<a href="../play/action?id=${n.id }">
 	                     	<li>
-	                           <img src="../../assets/images/test/list/testMain.png" alt="">
+	                           <img src="/test/listImg?id=${n.id}" alt="표지">
 	                           <div>${n.name }</div>
 	                        </li>
                         </a>
@@ -52,7 +52,7 @@
                         <c:forEach var="n" items="${bestList }" begin="0" end="2">
                      	<a href="../play/action?id=${n.id }">
 	                     	<li>
-	                           <img src="../../assets/images/test/list/testMain.png" alt="">
+	                           <img src="/test/listImg?id=${n.id}" alt="표지">
 	                           <div>${n.name }</div>
 	                        </li>
                         </a>
@@ -82,7 +82,7 @@
                         <c:forEach var="n" items="${list }" begin="0" end="3">
                         <a href="../play/action?id=${n.id }">
 	                     	<li>
-	                           <img src="../../assets/images/test/list/testMain.png" alt="">
+	                           <img src="/test/listImg?id=${n.id}" alt="표지">
 	                           <div>${n.name }</div>
 	                        </li>
                         </a>
@@ -92,7 +92,7 @@
                         <c:forEach var="n" items="${list }" begin="4" end="7">
                      	<a href="../play/action?id=${n.id }">
 	                     	<li>
-	                           <img src="../../assets/images/test/list/testMain.png" alt="">
+	                           <img src="/test/listImg?id=${n.id}" alt="표지">
 	                           <div>${n.name }</div>
 	                        </li>
                         </a>

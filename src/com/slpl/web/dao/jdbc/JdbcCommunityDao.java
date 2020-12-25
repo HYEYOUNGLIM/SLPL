@@ -21,7 +21,7 @@ public class JdbcCommunityDao implements CommunityDao {
 	public int insert(Community community) {
 		int result = 0;
 		String url = DBContext.URL;
-		String sql = "INSERT INTO community(id,member_id,TITLE,CONTENT,category_id) VALUES(seq.nextval,2,?,?,?)";
+		String sql = "INSERT INTO community(id,member_id,TITLE,CONTENT,category_id) VALUES(seq.nextval,6,?,?,?)";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

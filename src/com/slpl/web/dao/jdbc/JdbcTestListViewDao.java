@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.slpl.web.dao.test.TestListViewDao;
+import com.slpl.web.entity.test.Test;
 import com.slpl.web.entity.test.TestListView;
 
 public class JdbcTestListViewDao implements TestListViewDao {
@@ -197,6 +198,55 @@ public class JdbcTestListViewDao implements TestListViewDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	public TestListView get(int id) {
+		TestListView t = null;
+		String url = DBContext.URL;
+		String sql = "SELECT * FROM TEST_LIST_VIEW WHERE ID =" + id;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, DBContext.UID, DBContext.PWD);
+			PreparedStatement st = con.prepareStatement(sql);
+
+			ResultSet rs = st.executeQuery();
+
+			if (rs.next())
+				try {
+					String name = rs.getString("NAME");
+					int memberId = rs.getInt("MEMBER_ID");
+					String coverImg = rs.getString("COVER_IMG");
+					int publicState = rs.getInt("PUBLIC_STATE");
+					int bestState = rs.getInt("BEST_STATE");
+					int shareCnt = rs.getInt("SHARE_CNT");
+					int hitCnt = rs.getInt("HIT_CNT");
+					int recommendCnt = rs.getInt("RECOMMEND_CNT");
+					int reportCnt = rs.getInt("REPORT_CNT");
+					Timestamp regdate = rs.getTimestamp("REGDATE");
+					int formLevelId = rs.getInt("FORM_LEVEL_ID");
+					String nickname = rs.getNString("NICKNAME");
+					String levName = rs.getNString("LEV_NAME");
+					String cateName = rs.getNString("CATE_NAME");
+
+					t = new TestListView(id, name, memberId, coverImg, publicState, bestState, shareCnt,
+							hitCnt, recommendCnt, reportCnt, regdate, formLevelId, nickname, levName, cateName);
+					rs.close();
+					st.close();
+					con.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return t;
 	}
 
 }

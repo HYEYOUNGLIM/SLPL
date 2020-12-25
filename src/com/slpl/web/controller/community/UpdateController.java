@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.slpl.web.entity.community.Community;
 import com.slpl.web.service.community.CommunityService;
 
-
-
 @WebServlet("/community/all/update")
-public class UpdateController extends HttpServlet{
+public class UpdateController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,17 +33,17 @@ public class UpdateController extends HttpServlet{
 		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		
-		Community community = new Community(title,content);
+
+		Community community = new Community(title, content);
 		community.setId(Integer.parseInt(id));
-		
+
 		CommunityService service = new CommunityService();
 		service.update(community);
-		
+
 		String category = request.getParameter("c");
 		String categoryName = URLEncoder.encode(category);
 
-		response.sendRedirect("/community/all/list?c="+categoryName);
+		response.sendRedirect("/community/all/list?c=" + categoryName);
 
 	}
 
