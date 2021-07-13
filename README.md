@@ -1,3 +1,4 @@
+![트렐로](https://user-images.githubusercontent.com/54495841/125427411-1b6024f2-9968-4556-9e2e-53a4a4d0c879.PNG)
 
 # SLPL
 
@@ -29,6 +30,7 @@
 
 ## 📖 Issues 관리
 
+![트렐로](https://user-images.githubusercontent.com/54495841/125427435-82ace711-4a5f-4c04-9863-8145b949dfb3.PNG)
 
 ## 🎞 실행 화면
 
