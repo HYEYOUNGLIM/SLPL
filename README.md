@@ -1,7 +1,5 @@
 # SLPL
 
-[![img](https://github.com/Joong-eon/AllBareun/raw/master/src/main/resources/static/images/all.png)](https://github.com/Joong-eon/AllBareun/blob/master/src/main/resources/static/images/all.png)
-
 
 
 ## 📑 프로젝트 소개
